@@ -216,3 +216,31 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---------------------------------------------------------------------------
+# Project-specific
+# ---------------------------------------------------------------------------
+
+# Captured page scans. These images belong to Shanghai Library and must NEVER
+# be committed or redistributed (project brief 3.1b). Only the extracted
+# genealogical data is ours to publish.
+data/
+*.png
+
+# ...but the extension's own assets (icons) are source, not captured scans.
+!extension/**/*.png
+
+# SQLite capture/extraction store
+*.db
+*.db-wal
+*.db-shm
+
+# Secrets (ANTHROPIC_API_KEY etc.) - .env is also matched above
+.env
+.env.*
+
+# Extension / server JS deps
+node_modules/
+
+# Python bytecode - also matched above
+__pycache__/

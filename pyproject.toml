@@ -1,0 +1,5 @@
+[tool.pytest.ini_options]
+# Put the repo root on sys.path so `pytest` finds the `server` package whether
+# or not it is invoked as `python -m pytest`.
+pythonpath = ["."]
+testpaths = ["tests"]

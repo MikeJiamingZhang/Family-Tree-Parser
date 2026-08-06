@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Zupu Capture</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        font: 13px/1.45 system-ui, sans-serif;
+        width: 340px;
+        margin: 0;
+        padding: 12px;
+      }
+      h1 { font-size: 13px; margin: 0 0 8px; }
+      h2 {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        opacity: .6;
+        margin: 14px 0 5px;
+      }
+      .row { display: flex; justify-content: space-between; gap: 8px; padding: 2px 0; }
+      .row span:last-child { font-variant-numeric: tabular-nums; }
+      .ok { color: #157f3b; }
+      .bad { color: #c02626; font-weight: 600; }
+      .muted { opacity: .65; }
+      code {
+        font: 11px/1.4 ui-monospace, Consolas, monospace;
+        word-break: break-all;
+      }
+      ul { margin: 0; padding: 0; list-style: none; }
+      li { padding: 3px 0; border-top: 1px solid rgba(128,128,128,.25); }
+      button {
+        font: inherit;
+        padding: 5px 9px;
+        margin: 2px 4px 2px 0;
+        cursor: pointer;
+      }
+      .events li { font-size: 11px; }
+      label { display: flex; align-items: center; gap: 6px; padding: 4px 0; }
+    </style>
+  </head>
+  <body>
+    <h1>Zupu Capture</h1>
+
+    <h2>Injection <span class="muted">(check this first)</span></h2>
+    <div id="frames"><span class="muted">no frames reported yet</span></div>
+
+    <h2>Server</h2>
+    <div class="row"><span>localhost:8787</span><span id="server">…</span></div>
+    <div class="row"><span>Viewport</span><span id="viewport">…</span></div>
+    <div class="row"><span>Queue depth</span><span id="queue">…</span></div>
+
+    <h2>Capture</h2>
+    <div class="row"><span>Debugger</span><span id="debugger">…</span></div>
+    <div class="row"><span>Stored</span><span id="stored">0</span></div>
+    <div class="row"><span>Duplicates</span><span id="dedup">0</span></div>
+    <div class="row"><span>Buffered / failed</span><span id="buffered">0 / 0</span></div>
+    <div class="row"><span>Last page</span><span id="last">—</span></div>
+
+    <label><input type="checkbox" id="clip" /> Clip to viewer canvas</label>
+
+    <div>
+      <button id="capture">Capture this page now</button>
+      <button id="refresh">Refresh</button>
+    </div>
+
+    <h2>Recent messages</h2>
+    <ul class="events" id="events"></ul>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

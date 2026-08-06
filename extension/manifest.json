@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Zupu Capture",
+  "version": "0.1.0",
+  "description": "Captures 族譜 page scans as the operator browses, and posts them to the local capture server.",
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs",
+    "debugger",
+    "unlimitedStorage"
+  ],
+
+  "host_permissions": [
+    "https://dhapi.library.sh.cn/*",
+    "http://localhost:8787/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://dhapi.library.sh.cn/*"],
+      "all_frames": true,
+      "run_at": "document_start",
+      "js": ["content/probe.js", "content/settle.js"]
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Zupu Capture"
+  }
+}
